@@ -1,0 +1,12 @@
+.navbar {
+  background-color: black;
+  /* height: 100vh */
+  color: #551a8b;
+}
+.navbar:visited {
+  color: white;
+}
+
+.navbar:link {
+  color: white;
+}

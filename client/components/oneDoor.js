@@ -19,7 +19,7 @@ export default class oneDoor extends React.Component {
       personalityOne: 0,
       personalityTwo: 0,
       personalityThree: 0,
-      personalityFour: 0
+      personalityFour: 0,
     }
     this.storyPoints = [
       'You awaken in a dark room',
@@ -46,7 +46,7 @@ export default class oneDoor extends React.Component {
       'I want you to know...',
       'I love you',
       'And Finally...',
-      'What are you most grateful for?'
+      'What are you most grateful for?',
     ]
     this.doorOnePrompts = [
       '',
@@ -65,7 +65,7 @@ export default class oneDoor extends React.Component {
       '',
       'I love you too',
       '',
-      'Family'
+      'Family',
     ]
     this.doorTwoPrompts = [
       '',
@@ -84,7 +84,7 @@ export default class oneDoor extends React.Component {
       '',
       `I'm sorry`,
       '',
-      'Health'
+      'Health',
     ]
     this.doorThreePrompts = [
       '',
@@ -103,7 +103,7 @@ export default class oneDoor extends React.Component {
       '',
       `I don't know you`,
       '',
-      'Success'
+      'Success',
     ]
     this.doorFourPrompts = [
       '',
@@ -122,7 +122,7 @@ export default class oneDoor extends React.Component {
       '',
       `I don't know`,
       `I don't know`,
-      `I don't know`
+      `I don't know`,
     ]
   }
 
@@ -231,18 +231,21 @@ export default class oneDoor extends React.Component {
     if (index <= 4) {
       return (
         <div className="container">
+          <img
+            className="back-image"
+            src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Darkness.png"
+          />
           <div id="text-container" className="hide" />
           <div className="controls" />
 
-          <h1>
-            {text}
+          <h1 className="center-text">
             <button
               type="button"
               id="next-btn"
-              className="next-btn btn hide"
+              className="next-button"
               onClick={() => this.onClick()}
             >
-              Next{' '}
+              {text}
             </button>
           </h1>
         </div>
@@ -250,71 +253,92 @@ export default class oneDoor extends React.Component {
     }
     if (index > 4 && index < 8) {
       return (
-        <div>
-          {' '}
-          <h1>
-            {text}
-            <button
-              type="button"
-              id="next-btn"
-              className="next-btn btn hide"
-              onClick={() => this.onClick()}
-            >
-              Door{' '}
-            </button>
-          </h1>
-          {/* <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXLv7fhp3u3OM9Q1Yom4fnuprPsIGvPzzOrA&usqp=CAU" /> */}
+        <div className="container">
+          <div className="button-text-container">
+            {' '}
+            <h1 className="center-text48">{text}</h1>
+            <div className="button-container">
+              <button
+                type="button"
+                id="next-btn"
+                className="fourdoors"
+                onClick={() => this.onClick()}
+              >
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXLv7fhp3u3OM9Q1Yom4fnuprPsIGvPzzOrA&usqp=CAU" />
+              </button>
+            </div>
+          </div>
         </div>
       )
     }
     if (index >= 8 && index < 25) {
       return (
-        <div>
+        <div className="darkroom">
           {' '}
-          <h1>{text}</h1>
-          {/* <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXLv7fhp3u3OM9Q1Yom4fnuprPsIGvPzzOrA&usqp=CAU" />
+          <div className="button-text-container">
+            <h1 className="center-text">{text}</h1>
+            {/* <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXLv7fhp3u3OM9Q1Yom4fnuprPsIGvPzzOrA&usqp=CAU" />
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXLv7fhp3u3OM9Q1Yom4fnuprPsIGvPzzOrA&usqp=CAU" />
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXLv7fhp3u3OM9Q1Yom4fnuprPsIGvPzzOrA&usqp=CAU" /> */}
-          <h3>{d1}</h3>
-          <button
-            type="button"
-            id="door-1"
-            className="next-btn btn hide"
-            onClick={() => this.doorOneClick()}
-          >
-            Door 1{' '}
-          </button>{' '}
-          <h3>{d2}</h3>
-          <button
-            type="button"
-            id="door-2"
-            className="next-btn btn hide"
-            onClick={() => this.doorTwoClick()}
-          >
-            Door 2{' '}
-          </button>{' '}
-          <h3>{d3}</h3>
-          <button
-            type="button"
-            id="door-3"
-            className="next-btn btn hide"
-            onClick={() => this.doorThreeClick()}
-          >
-            Door 3{' '}
-          </button>
-          <h3>{d4}</h3>
-          <button
-            type="button"
-            id="door-4"
-            className="next-btn btn hide"
-            onClick={() => this.doorFourClick()}
-          >
-            Door 4{' '}
-          </button>
+            <div className="button-container">
+              <div className="button-wrapper">
+                <h3 className="answertext">{d1}</h3>
+                <button
+                  type="button"
+                  id="door-1"
+                  className="fourdoors"
+                  onClick={() => this.doorOneClick()}
+                >
+                  <img
+                    className="fourdoors"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXLv7fhp3u3OM9Q1Yom4fnuprPsIGvPzzOrA&usqp=CAU"
+                  />
+                </button>{' '}
+              </div>
+              <div className="button-wrapper">
+                {' '}
+                <h3 className="answertext">{d2}</h3>
+                <button
+                  type="button"
+                  id="door-2"
+                  className="fourdoors"
+                  onClick={() => this.doorTwoClick()}
+                >
+                  <img
+                    className="fourdoors"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXLv7fhp3u3OM9Q1Yom4fnuprPsIGvPzzOrA&usqp=CAU"
+                  />
+                </button>{' '}
+              </div>
+              <div className="button-wrapper">
+                {' '}
+                <h3 className="answertext">{d3}</h3>
+                <button
+                  type="button"
+                  id="door-3"
+                  className="fourdoors"
+                  onClick={() => this.doorThreeClick()}
+                >
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXLv7fhp3u3OM9Q1Yom4fnuprPsIGvPzzOrA&usqp=CAU" />
+                </button>
+              </div>
+              <div className="button-wrapper">
+                <h3 className="answertext">{d4}</h3>
+                <button
+                  type="button"
+                  id="door-4"
+                  className="fourdoors"
+                  onClick={() => this.doorFourClick()}
+                >
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXLv7fhp3u3OM9Q1Yom4fnuprPsIGvPzzOrA&usqp=CAU" />
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       )
     }
-    if (index >= 25 && p1 > p2 && p1 > p3 && p1 > p4) {
+    if (index >= 25 && p1 >= p2 && p1 >= p3 && p1 >= p4) {
       return (
         <div>
           <div className="sky" />
@@ -324,17 +348,21 @@ export default class oneDoor extends React.Component {
         </div>
       )
     }
-    if (index >= 25 && p2 > p1 && p2 > p3 && p2 > p4) {
+    if (index >= 25 && p2 >= p1 && p2 >= p3 && p2 >= p4) {
       return (
-        <img src="https://www.clipartmax.com/png/middle/195-1953506_cute-snake-gif-chinese-new-year-snake.png" />
+        <img
+          src="https://www.clipartmax.com/png/middle/195-1953506_cute-snake-gif-chinese-new-year-snake.png"
+          width="250"
+          height="200"
+        />
       )
     }
-    if (index >= 25 && p3 > p1 && p3 > p2 && p3 > p4) {
+    if (index >= 25 && p3 >= p1 && p3 >= p2 && p3 >= p4) {
       return (
         <img src=" https://s3.amazonaws.com/gameartpartnersimagehost/wp-content/uploads/edd/2015/07/dog_featured.png" />
       )
     }
-    if (index >= 25 && p4 > p1 && p4 > p2 && p4 > p3) {
+    if (index >= 25 && p4 >= p1 && p4 >= p2 && p4 >= p3) {
       return (
         <img src="https://www.clipartmax.com/png/middle/132-1327472_drawn-sunlight-cute-cartoon-cute-platypus-drawing.png" />
       )

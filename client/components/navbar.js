@@ -4,45 +4,48 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
 
+import '../css-components/navbar.css'
+
 const Navbar = ({handleClick, isLoggedIn}) => (
-  <div>
+  <div className="navbar">
     <h1>Gratitude Animal</h1>
     <nav>
       {isLoggedIn ? (
-        <div>
+        <div className="navbar">
           {/* The navbar will show these links after you log in */}
           <Link to="/home">Home</Link>
+          <Link to="/onedoor">Meet your friend</Link>
+
           <a href="#" onClick={handleClick}>
             Logout
           </a>
         </div>
       ) : (
-        <div>
+        <div className="navbar">
           {/* The navbar will show these links before you log in */}
           <Link to="/login">Login</Link>
           <Link to="/signup">Sign Up</Link>
-          <Link to="/onedoor">Meet your friend</Link>
+          <Link to="/outside">test</Link>
         </div>
       )}
     </nav>
-    <hr />
   </div>
 )
 
 /**
  * CONTAINER
  */
-const mapState = state => {
+const mapState = (state) => {
   return {
-    isLoggedIn: !!state.user.id
+    isLoggedIn: !!state.user.id,
   }
 }
 
-const mapDispatch = dispatch => {
+const mapDispatch = (dispatch) => {
   return {
     handleClick() {
       dispatch(logout())
-    }
+    },
   }
 }
 
@@ -53,5 +56,5 @@ export default connect(mapState, mapDispatch)(Navbar)
  */
 Navbar.propTypes = {
   handleClick: PropTypes.func.isRequired,
-  isLoggedIn: PropTypes.bool.isRequired
+  isLoggedIn: PropTypes.bool.isRequired,
 }

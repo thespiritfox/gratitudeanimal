@@ -1,0 +1,92 @@
+.button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.next-button {
+  position: absolute;
+  top: 27%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.center-text {
+  text-align: center;
+  color: rgb(185, 42, 42);
+  margin-top: 280px;
+}
+
+.center-text48 {
+  margin-top: 280px;
+  text-align: center;
+  color: rgb(185, 42, 42);
+}
+
+hr {
+  margin: -1px;
+}
+
+.container {
+  /* The image used */
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/c0/Darkness.png');
+
+  /* Full height */
+  height: 100vh;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.button-text-container {
+  display: flex;
+  height: 66vh;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.darkroom {
+  background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5af7ae8d-b9ca-4ead-ae87-66b18d95545c/d5frfll-a4ffcecd-d027-4477-b6ee-cb9e6ddab8c4.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvNWFmN2FlOGQtYjljYS00ZWFkLWFlODctNjZiMThkOTU1NDVjXC9kNWZyZmxsLWE0ZmZjZWNkLWQwMjctNDQ3Ny1iNmVlLWNiOWU2ZGRhYjhjNC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.89GPtbYFUslEJjvdTnMZ2HP6nLl976-S5qPtzSmDQPs');
+
+  /* Full height */
+  height: 100vh;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  /* background-repeat: no-repeat; */
+  background-size: cover;
+}
+
+.fourdoors {
+  padding: 0;
+  border: none;
+  background: none;
+  /* margin: 20px */
+}
+
+.answertext {
+  color: rgb(185, 42, 42);
+}
+.button-wrapper {
+  text-align: center;
+  display: inline-block;
+  /* margin:60px; */
+  width: 200px;
+}
+.next-button:hover {
+  background-color: #7c0200;
+}
+.next-button {
+  margin-top: 220px;
+}
