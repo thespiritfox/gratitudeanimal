@@ -21,12 +21,11 @@ async function seed() {
     }),
   ])
 
-  const entries = await Promise.all([
-    Entry.create({
-      content:
-        'I am grateful for my dog. I am so very grateful..:)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))thanks',
-    }),
-  ])
+  // const entries = await Promise.all([
+  //   Entry.create({
+  //     content: 'I am grateful for my dog.',
+  //   }),
+  // ])
 
   console.log(`seeded ${users.length} users`)
   console.log(`seeded successfully`)
