@@ -4,6 +4,11 @@ const Animal = require('../db/models/animal')
 
 router.get('/', async (req, res, next) => {
   try {
+    const animal = await Animal.findOne({
+      where: {
+        userId: req.session.passport.user,
+      },
+    })
     res.send(await animal)
   } catch (error) {
     next(error)
