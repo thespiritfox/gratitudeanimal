@@ -6,6 +6,7 @@ import {Login, Signup, UserHome} from './components'
 import {me} from './store'
 import oneDoor from './components/oneDoor'
 import outside from './components/outside'
+import allEntries from './components/allEntries'
 
 /**
  * COMPONENT
@@ -25,6 +26,7 @@ class Routes extends Component {
         <Route path="/signup" component={Signup} />
         <Route path="/onedoor" component={oneDoor} />
         <Route path="/outside" component={outside} />
+        <Route path="/diary" component={allEntries} />
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}

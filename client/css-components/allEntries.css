@@ -1,0 +1,27 @@
+.entry-container {
+  /* The image used */
+  background-image: url('https://www.featurepics.com/StockImage/20080605/old-paper-or-parchment-stock-image-759454.jpg');
+
+  /* Full height */
+  height: 100vh;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.entry-text {
+  font-family: cursive;
+  text-align: center;
+  margin-top: 30px;
+  /* padding-top: 5px; */
+}
+
+#entry-header {
+  padding-top: 20px;
+  text-decoration: underline;
+  font-family: cursive;
+  text-align: center;
+  margin-top: 0px;
+}

@@ -3,10 +3,12 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
+import CreateEntry from './createEntry'
 
 import '../css-components/OneDoor.css'
+import {createAnimal, fetchAnimal} from '../store/animal'
 
-export default class oneDoor extends React.Component {
+export class oneDoor extends React.Component {
   constructor(props) {
     super(props)
     this.onClick = this.onClick.bind(this)
@@ -47,6 +49,14 @@ export default class oneDoor extends React.Component {
       'I love you',
       'And Finally...',
       'What are you most grateful for?',
+      "I'm so happy we can finally meet :)",
+      "You're even more good looking in person",
+      "I'm not a normal animal. I don't eat regular food",
+      'I live off your gratitude',
+      'So write your gratitude at the top left of the screen ',
+      'Then see all your grateful for on the Diary Page',
+      'then come back tomorrow and do the same :)',
+      "I'll always be here for you",
     ]
     this.doorOnePrompts = [
       '',
@@ -127,6 +137,10 @@ export default class oneDoor extends React.Component {
   }
 
   doorButton() {}
+
+  componentDidMount() {
+    this.props.fetchAnimal()
+  }
 
   doorOneClick() {
     let p = this.state.personalityOne
@@ -339,47 +353,495 @@ export default class oneDoor extends React.Component {
       )
     }
     if (index >= 25 && p1 >= p2 && p1 >= p3 && p1 >= p4) {
+      console.log(this.props)
       return (
         <div>
-          <div className="sky" />
-          <div className="grass" />
-          <div className="road" />
-          <img src="https://i.pinimg.com/originals/86/b4/74/86b47418756ad03f5cff453ae2d9420c.png" />
+          <h1 className="animal-header">
+            Your animal is the dolphin of wisdom
+          </h1>
+          <div id="divLandscape">
+            <div className="hill hill1"></div>
+            <div className="hill hill2"></div>
+            <div className="hill hill3"></div>
+            <div className="hill hill4"></div>
+
+            <div className="grass"></div>
+
+            <div className="tree1">
+              <div className="tree-leaves">
+                <div className="tree-leaf-circle tree-leaf-circle1"></div>
+                <div className=" tree-leaf-circle tree-leaf-circle2"></div>
+                <div className=" tree-leaf-circle tree-leaf-circle3"></div>
+                <div className=" tree-leaf-circle tree-leaf-circle4"></div>
+                <div className=" tree-leaf-circle tree-leaf-circle5"></div>
+                <div className=" tree-leaf-circle tree-leaf-circle6"></div>
+                <div className=" tree-leaf-circle tree-leaf-circle7"></div>
+              </div>
+              <div className="tree-trunk"></div>
+            </div>
+
+            <div className="tree2">
+              <div className="tree-leaves">
+                <div className="tree-leaf-circle tree-leaf-circle1"></div>
+                <div className=" tree-leaf-circle tree-leaf-circle2"></div>
+                <div className=" tree-leaf-circle tree-leaf-circle3"></div>
+                <div className=" tree-leaf-circle tree-leaf-circle4"></div>
+                <div className=" tree-leaf-circle tree-leaf-circle5"></div>
+                <div className=" tree-leaf-circle tree-leaf-circle6"></div>
+                <div className=" tree-leaf-circle tree-leaf-circle7"></div>
+              </div>
+              <div className="tree-trunk"></div>
+            </div>
+
+            <div className="tree3">
+              <div className="tree-leaves">
+                <div className="tree-leaf-circle tree-leaf-circle1"></div>
+                <div className=" tree-leaf-circle tree-leaf-circle2"></div>
+                <div className=" tree-leaf-circle tree-leaf-circle3"></div>
+                <div className=" tree-leaf-circle tree-leaf-circle4"></div>
+                <div className=" tree-leaf-circle tree-leaf-circle5"></div>
+                <div className=" tree-leaf-circle tree-leaf-circle6"></div>
+                <div className=" tree-leaf-circle tree-leaf-circle7"></div>
+              </div>
+              <div className="tree-trunk"></div>
+            </div>
+
+            <div className="tree4">
+              <div className="tree-leaves">
+                <div className="tree-leaf-circle tree-leaf-circle1"></div>
+                <div className=" tree-leaf-circle tree-leaf-circle2"></div>
+                <div className=" tree-leaf-circle tree-leaf-circle3"></div>
+                <div className=" tree-leaf-circle tree-leaf-circle4"></div>
+                <div className=" tree-leaf-circle tree-leaf-circle5"></div>
+                <div className=" tree-leaf-circle tree-leaf-circle6"></div>
+                <div className=" tree-leaf-circle tree-leaf-circle7"></div>
+              </div>
+              <div className="tree-trunk"></div>
+            </div>
+
+            <div className="cloud cloud1">
+              <div className="cloud-circle cloud-circle1"></div>
+              <div className="cloud-circle cloud-circle2"></div>
+              <div className="cloud-circle cloud-circle3"></div>
+              <div className="cloud-circle cloud-circle4"></div>
+              <div className="cloud-circle cloud-circle5"></div>
+            </div>
+
+            <div className="cloud cloud2">
+              <div className="cloud-circle cloud-circle1"></div>
+              <div className="cloud-circle cloud-circle2"></div>
+              <div className="cloud-circle cloud-circle3"></div>
+              <div className="cloud-circle cloud-circle4"></div>
+              <div className="cloud-circle cloud-circle5"></div>
+            </div>
+
+            <div className="sky"></div>
+
+            <div className="spinner">
+              <div className="sun"></div>
+              <div className="moon"></div>
+            </div>
+
+            <div id="divHillMain"></div>
+
+            <div>
+              <div className="frame frameLeft"></div>
+              <div className="frame frameTop"></div>
+              <div className="frame frameRight"></div>
+              <div className="frame frameBottom"></div>
+            </div>
+          </div>
+          <div>
+            <button
+              type="button"
+              id="next-btn"
+              className="next-button"
+              onClick={() => this.onClick()}
+            >
+              {text}
+            </button>
+            <CreateEntry className="next-button" />
+            <img
+              className="grat-animal"
+              src="https://i.pinimg.com/originals/86/b4/74/86b47418756ad03f5cff453ae2d9420c.png"
+              width="250"
+              height="200"
+            />
+          </div>
         </div>
       )
     }
     if (index >= 25 && p2 >= p1 && p2 >= p3 && p2 >= p4) {
       return (
-        <img
-          src="https://www.clipartmax.com/png/middle/195-1953506_cute-snake-gif-chinese-new-year-snake.png"
-          width="250"
-          height="200"
-        />
+        <div>
+          <h1 className="animal-header">
+            Your animal is the snake of ambition
+          </h1>
+          <div>
+            <div id="divLandscape">
+              <div className="hill hill1"></div>
+              <div className="hill hill2"></div>
+              <div className="hill hill3"></div>
+              <div className="hill hill4"></div>
+
+              <div className="grass"></div>
+
+              <div className="tree1">
+                <div className="tree-leaves">
+                  <div className="tree-leaf-circle tree-leaf-circle1"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle2"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle3"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle4"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle5"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle6"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle7"></div>
+                </div>
+                <div className="tree-trunk"></div>
+              </div>
+
+              <div className="tree2">
+                <div className="tree-leaves">
+                  <div className="tree-leaf-circle tree-leaf-circle1"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle2"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle3"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle4"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle5"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle6"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle7"></div>
+                </div>
+                <div className="tree-trunk"></div>
+              </div>
+
+              <div className="tree3">
+                <div className="tree-leaves">
+                  <div className="tree-leaf-circle tree-leaf-circle1"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle2"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle3"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle4"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle5"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle6"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle7"></div>
+                </div>
+                <div className="tree-trunk"></div>
+              </div>
+
+              <div className="tree4">
+                <div className="tree-leaves">
+                  <div className="tree-leaf-circle tree-leaf-circle1"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle2"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle3"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle4"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle5"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle6"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle7"></div>
+                </div>
+                <div className="tree-trunk"></div>
+              </div>
+
+              <div className="cloud cloud1">
+                <div className="cloud-circle cloud-circle1"></div>
+                <div className="cloud-circle cloud-circle2"></div>
+                <div className="cloud-circle cloud-circle3"></div>
+                <div className="cloud-circle cloud-circle4"></div>
+                <div className="cloud-circle cloud-circle5"></div>
+              </div>
+
+              <div className="cloud cloud2">
+                <div className="cloud-circle cloud-circle1"></div>
+                <div className="cloud-circle cloud-circle2"></div>
+                <div className="cloud-circle cloud-circle3"></div>
+                <div className="cloud-circle cloud-circle4"></div>
+                <div className="cloud-circle cloud-circle5"></div>
+              </div>
+
+              <div className="sky"></div>
+
+              <div className="spinner">
+                <div className="sun"></div>
+                <div className="moon"></div>
+              </div>
+
+              <div id="divHillMain"></div>
+
+              <div>
+                <div className="frame frameLeft"></div>
+                <div className="frame frameTop"></div>
+                <div className="frame frameRight"></div>
+                <div className="frame frameBottom"></div>
+              </div>
+            </div>
+            <div>
+              <button
+                type="button"
+                id="next-btn"
+                className="next-button"
+                onClick={() => this.onClick()}
+              >
+                {text}
+              </button>
+              <CreateEntry />
+              <img
+                className="grat-animal"
+                src="https://www.clipartmax.com/png/middle/195-1953506_cute-snake-gif-chinese-new-year-snake.png"
+                width="250"
+                height="200"
+              />
+            </div>
+          </div>
+        </div>
       )
     }
     if (index >= 25 && p3 >= p1 && p3 >= p2 && p3 >= p4) {
       return (
-        <img src=" https://s3.amazonaws.com/gameartpartnersimagehost/wp-content/uploads/edd/2015/07/dog_featured.png" />
+        <div>
+          <h1 className="animal-header">Your animal is the dog of courage</h1>
+          <div>
+            <div id="divLandscape">
+              <div className="hill hill1"></div>
+              <div className="hill hill2"></div>
+              <div className="hill hill3"></div>
+              <div className="hill hill4"></div>
+
+              <div className="grass"></div>
+
+              <div className="tree1">
+                <div className="tree-leaves">
+                  <div className="tree-leaf-circle tree-leaf-circle1"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle2"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle3"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle4"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle5"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle6"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle7"></div>
+                </div>
+                <div className="tree-trunk"></div>
+              </div>
+
+              <div className="tree2">
+                <div className="tree-leaves">
+                  <div className="tree-leaf-circle tree-leaf-circle1"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle2"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle3"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle4"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle5"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle6"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle7"></div>
+                </div>
+                <div className="tree-trunk"></div>
+              </div>
+
+              <div className="tree3">
+                <div className="tree-leaves">
+                  <div className="tree-leaf-circle tree-leaf-circle1"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle2"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle3"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle4"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle5"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle6"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle7"></div>
+                </div>
+                <div className="tree-trunk"></div>
+              </div>
+
+              <div className="tree4">
+                <div className="tree-leaves">
+                  <div className="tree-leaf-circle tree-leaf-circle1"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle2"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle3"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle4"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle5"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle6"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle7"></div>
+                </div>
+                <div className="tree-trunk"></div>
+              </div>
+
+              <div className="cloud cloud1">
+                <div className="cloud-circle cloud-circle1"></div>
+                <div className="cloud-circle cloud-circle2"></div>
+                <div className="cloud-circle cloud-circle3"></div>
+                <div className="cloud-circle cloud-circle4"></div>
+                <div className="cloud-circle cloud-circle5"></div>
+              </div>
+
+              <div className="cloud cloud2">
+                <div className="cloud-circle cloud-circle1"></div>
+                <div className="cloud-circle cloud-circle2"></div>
+                <div className="cloud-circle cloud-circle3"></div>
+                <div className="cloud-circle cloud-circle4"></div>
+                <div className="cloud-circle cloud-circle5"></div>
+              </div>
+
+              <div className="sky"></div>
+
+              <div className="spinner">
+                <div className="sun"></div>
+                <div className="moon"></div>
+              </div>
+
+              <div id="divHillMain"></div>
+
+              <div>
+                <div className="frame frameLeft"></div>
+                <div className="frame frameTop"></div>
+                <div className="frame frameRight"></div>
+                <div className="frame frameBottom"></div>
+              </div>
+            </div>
+            <div>
+              <button
+                type="button"
+                id="next-btn"
+                className="next-button"
+                onClick={() => this.onClick()}
+              >
+                {text}
+              </button>
+              <CreateEntry />
+              <img
+                className="grat-animal"
+                src="https://s3.amazonaws.com/gameartpartnersimagehost/wp-content/uploads/edd/2015/07/dog_featured.png"
+                width="250"
+                height="200"
+              />
+            </div>
+          </div>
+        </div>
       )
     }
     if (index >= 25 && p4 >= p1 && p4 >= p2 && p4 >= p3) {
       return (
-        <img src="https://www.clipartmax.com/png/middle/132-1327472_drawn-sunlight-cute-cartoon-cute-platypus-drawing.png" />
+        <div>
+          <h1 className="animal-header">
+            Your animal is the platypus of indecisiveness
+          </h1>
+          <div>
+            <div id="divLandscape">
+              <div className="hill hill1"></div>
+              <div className="hill hill2"></div>
+              <div className="hill hill3"></div>
+              <div className="hill hill4"></div>
+
+              <div className="grass"></div>
+
+              <div className="tree1">
+                <div className="tree-leaves">
+                  <div className="tree-leaf-circle tree-leaf-circle1"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle2"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle3"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle4"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle5"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle6"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle7"></div>
+                </div>
+                <div className="tree-trunk"></div>
+              </div>
+
+              <div className="tree2">
+                <div className="tree-leaves">
+                  <div className="tree-leaf-circle tree-leaf-circle1"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle2"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle3"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle4"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle5"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle6"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle7"></div>
+                </div>
+                <div className="tree-trunk"></div>
+              </div>
+
+              <div className="tree3">
+                <div className="tree-leaves">
+                  <div className="tree-leaf-circle tree-leaf-circle1"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle2"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle3"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle4"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle5"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle6"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle7"></div>
+                </div>
+                <div className="tree-trunk"></div>
+              </div>
+
+              <div className="tree4">
+                <div className="tree-leaves">
+                  <div className="tree-leaf-circle tree-leaf-circle1"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle2"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle3"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle4"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle5"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle6"></div>
+                  <div className=" tree-leaf-circle tree-leaf-circle7"></div>
+                </div>
+                <div className="tree-trunk"></div>
+              </div>
+
+              <div className="cloud cloud1">
+                <div className="cloud-circle cloud-circle1"></div>
+                <div className="cloud-circle cloud-circle2"></div>
+                <div className="cloud-circle cloud-circle3"></div>
+                <div className="cloud-circle cloud-circle4"></div>
+                <div className="cloud-circle cloud-circle5"></div>
+              </div>
+
+              <div className="cloud cloud2">
+                <div className="cloud-circle cloud-circle1"></div>
+                <div className="cloud-circle cloud-circle2"></div>
+                <div className="cloud-circle cloud-circle3"></div>
+                <div className="cloud-circle cloud-circle4"></div>
+                <div className="cloud-circle cloud-circle5"></div>
+              </div>
+
+              <div className="sky"></div>
+
+              <div className="spinner">
+                <div className="sun"></div>
+                <div className="moon"></div>
+              </div>
+
+              <div id="divHillMain"></div>
+
+              <div>
+                <div className="frame frameLeft"></div>
+                <div className="frame frameTop"></div>
+                <div className="frame frameRight"></div>
+                <div className="frame frameBottom"></div>
+              </div>
+            </div>
+            <div>
+              <button
+                type="button"
+                id="next-btn"
+                className="next-button"
+                onClick={() => this.onClick()}
+              >
+                {text}
+              </button>
+              <CreateEntry />
+              <img
+                className="grat-animal"
+                src="https://www.clipartmax.com/png/middle/132-1327472_drawn-sunlight-cute-cartoon-cute-platypus-drawing.png"
+                width="250"
+                height="200"
+              />
+            </div>
+          </div>
+        </div>
       )
     }
   }
 }
-// const mapState = (state) => {
-//     return {
-//       products: state.products,
-//     };
-//   };
+const mapState = (state) => {
+  return {
+    animal: state.animal,
+  }
+}
 
-//   const mapDispatch = (dispatch) => {
-//     return {
-//       getProducts: () => dispatch(fetchProducts()),
-//       addProduct: (product) => dispatch(addProduct(product)),
-//     };
-//   };
+const mapDispatch = (dispatch) => {
+  return {
+    fetchAnimal: (id) => dispatch(fetchAnimal(id)),
+    createAnimal: (animal) => dispatch(createAnimal(animal)),
+  }
+}
 
-//   export default connect(mapState, mapDispatch)(AllProducts);
+export default connect(mapState, mapDispatch)(oneDoor)

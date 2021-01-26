@@ -1,15 +1,24 @@
 const router = require('express').Router()
-const Entry = require('../db/models/entry')
 const Animal = require('../db/models/animal')
+
+// router.get('/', async (req, res, next) => {
+//   try {
+//     const animal = await Animal.findOne({
+//       where: {
+//         userId: req.session.passport.user,
+//       },
+//     })
+//     res.json(await animal)
+//   } catch (error) {
+//     next(error)
+//   }
+// })
 
 router.get('/', async (req, res, next) => {
   try {
-    const animal = await Animal.findOne({
-      where: {
-        userId: req.session.passport.user,
-      },
-    })
-    res.send(await animal)
+    const animal = await Animal.findAll()
+
+    res.json(animal)
   } catch (error) {
     next(error)
   }
@@ -17,18 +26,13 @@ router.get('/', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
   try {
-    const userId = req.session.passport.user
+    // const userId = req.session.passport.user
 
-    const [animal, wasCreated] = await Animal.create(
-      req.body
-      //     {
-      //   defaults: {
-      //     userId,
-      //   },
-      // }
-    )
+    console.log(req._passport)
 
-    res.send(animal)
+    const animal = await Animal.create(req.body)
+
+    res.json(animal)
   } catch (err) {
     next(err)
   }
@@ -42,7 +46,7 @@ router.put('/', async (req, res, next) => {
       },
     })
     const animalUpdate = await animal.update(req.body, {returning: true})
-    res.send(animalUpdate)
+    res.json(animalUpdate)
   } catch (ex) {
     next(ex)
   }
