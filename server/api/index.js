@@ -2,7 +2,7 @@ const router = require('express').Router()
 module.exports = router
 
 router.use('/users', require('./users'))
-router.use('/animal', require('./animal'))
+router.use('/animal', require('./entry'))
 router.use('/entry', require('./entry'))
 
 router.use((req, res, next) => {
